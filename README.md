@@ -81,13 +81,18 @@ ir_yolo/
 # 1) 安裝依賴
 pip install -r requirements.txt
 
-# 2) 下載三個數據集解壓到 data/raw/{LLVIP,FLIR,KAIST}（見下方連結）
+# 2) 一鍵取得資料集（下載 + 轉 YOLO + 驗證 → data/yolo/）
+#    FLIR/KAIST 需先設 Kaggle token（見「資料下載」）
+bash scripts/get_data.sh
 
-# 3) 一鍵轉換 + 驗證（缺哪個資料集就自動跳過）
-bash scripts/prepare_all.sh
+# 3) 開始訓練
+python scripts/train.py --device 0
+```
 
-# 4) 開始訓練
-python scripts/train.py
+**只想推論不用重訓**：權重已在 repo `models/`（`.pt` + `.onnx`），直接用：
+
+```bash
+yolo detect predict model=models/ir_person_yolo11n.pt source=<ir_image> device=0
 ```
 
 ---
