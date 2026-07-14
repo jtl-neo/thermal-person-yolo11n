@@ -1,0 +1,28 @@
+# datasets (huge / licensed — not redistributed)
+data/raw/
+data/yolo/
+LLVIP/
+
+# training runs (keep report.html + models/ instead)
+runs/
+
+# envs
+.venv/
+venv/
+__pycache__/
+*.pyc
+
+# archives
+*.zip
+
+# stray root weights (auto-downloaded)
+/yolo11n.pt
+/yolo26n.pt
+/best.pt
+
+# keep the trained model + onnx in models/
+!models/
+!models/*.pt
+!models/*.onnx
+/yolo11n.torchscript
+*.torchscript

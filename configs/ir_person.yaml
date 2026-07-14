@@ -1,0 +1,9 @@
+# Ultralytics data config — IR person detection
+# path 為 data/yolo 的絕對或相對路徑（相對於執行 yolo 的工作目錄）
+path: data/yolo
+train: images/train
+val: images/val
+test: images/test
+
+names:
+  0: person
